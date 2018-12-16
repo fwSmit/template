@@ -10,10 +10,17 @@ int main()
 	tgui::Gui gui(window);
 	tgui::Button::Ptr button;
 	arma::fvec2 circlePos {250, 250};
-	sf::CircleShape shape(100.f);
+	sf::CircleShape shape(200.f);
+	shape.setPointCount(300);
 	shape.setOrigin(shape.getRadius(), shape.getRadius());
 	shape.setPosition(circlePos[0], circlePos[1]);
-	shape.setFillColor(sf::Color::Green);
+	sf::Texture img;
+	if(!img.loadFromFile("resources/background.jpg")){
+		// could not load image
+		std::cout << "Could not find image" << std::endl;
+		return -1;
+	}
+	shape.setTexture(&img);
 
 	while (window.isOpen())
 	{
@@ -31,6 +38,7 @@ int main()
 
 		window.clear();
 		window.draw(shape);
+		//window.draw(img);
 		window.display();
 	}
 }

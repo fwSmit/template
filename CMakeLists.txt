@@ -7,8 +7,12 @@ project (template_project CXX)
 
 #file globing
 file(GLOB_RECURSE sources src/*.cpp src/*.h)
+file(GLOB_RECURSE data resources/*)
 
-add_executable(template ${sources})
+add_executable(template ${sources} ${data})
+
+#copy resources to build directory
+file(COPY ${data} DESTINATION resources)
 
 #armadillo library
 find_package(Armadillo REQUIRED)
