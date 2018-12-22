@@ -5,6 +5,13 @@
 
 int main()
 {
+	int ab =10;
+	if(!ab > 1){
+		std::cout << "ab is " << ab << std::endl;
+	}
+	else{
+		std::cout << "false" << std::endl;
+	}
 	std::cout << "Opening window" << std::endl;
 	sf::RenderWindow window(sf::VideoMode(500, 500), "Template works!");
 	tgui::Gui gui(window);
