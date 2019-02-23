@@ -21,7 +21,7 @@ templateDir="$HOME/git_repos/template"
 cp $templateDir/cmake $templateDir/compile_commands.json $templateDir/src $templateDir/.gitignore $newProjectLocation -r
 mkdir $newProjectLocation/build
 while true; do
-    read -p "Do you wish to create a resources directory?" yn
+	read -p "Do you wish to create a resources directory? (y/n) " yn
     case $yn in
         [Yy]* ) mkdir $newProjectLocation/resources; break;;
         [Nn]* ) break;;
